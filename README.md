@@ -1,3 +1,38 @@
+KEEP IN MIND THAT I USED ALL THESE IN GOOGLE COLAB
+
+INSTALLMENTS NEEDED..
+```python
+!pip install torch torchvision torchaudio
+```
+
+```python
+!pip install ultralytics
+```
+```python
+!git clone https://github.com/ultralytics/yolov5.git /content/yolov5
+```
+In Yolov5 we will get 
+benchmarks.py	 data	     LICENSE	     README.md	       segment	       val.py
+CITATION.cff	 detect.py   models	     README.zh-CN.md   train.py        yolov5s.pt
+classify	 export.py   __pycache__     requirements.txt  tutorial.ipynb
+CONTRIBUTING.md  hubconf.py  pyproject.toml  runs	       utils
+
+
+Steps to train and Evaluate
+- **Training**
+```python
+!python3 /content/yolov5/train.py --img 640 --batch 16 --epochs 10 --data /content/dataset.yaml --weights yolov5s.pt --cache --no-wandb
+```
+- **Evaluating**
+```python
+!python3 /content/yolov5/val.py --weights /content/yolov5/runs/train/exp2/weights/best.pt --data /content/dataset.yaml --img 640 --task val
+```
+- **Testing**
+```python
+!python3 /content/yolov5/detect.py --weights  /content/yolov5/runs/train/exp2/weights/best.pt --img 640 --source /content/download.jpeg
+```
+
+
 This Python script **converts Pascal VOC XML annotations to YOLO format** for object detection. Below is a detailed breakdown of how it works.
 
 ---
